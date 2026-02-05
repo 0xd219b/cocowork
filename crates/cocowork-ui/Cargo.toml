@@ -1,0 +1,46 @@
+[package]
+name = "cocowork-ui"
+description = "GPUI-based desktop UI for CocoWork"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[lib]
+name = "cocowork_ui"
+path = "src/lib.rs"
+
+[[bin]]
+name = "cocowork"
+path = "src/main.rs"
+
+[dependencies]
+# Core library
+cocowork-core = { path = "../cocowork-core" }
+
+# Async runtime
+tokio = { workspace = true }
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# Utilities
+chrono = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+uuid = { workspace = true }
+anyhow = { workspace = true }
+dirs = { workspace = true }
+unicode-segmentation = "1.10"
+
+# GUI (GPUI)
+gpui = { workspace = true }
+markdown = { git = "https://github.com/zed-industries/zed", rev = "v0.156.0", package = "markdown" }
+
+# Native file dialogs
+rfd = "0.14"
+
+[dev-dependencies]
+tempfile = { workspace = true }
